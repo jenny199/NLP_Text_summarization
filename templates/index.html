@@ -8,26 +8,43 @@
     <body>
         
         <h1 class="text-center">Text Summarization</h1>
-        <form class="p-3 text-center" action='/', method="post" enctype="multipart/form-data">
+        <form class="p-3 text-center" action='/summarizeUploaded', method="post" enctype="multipart/form-data">
             <input class="form-control" type="file" name="textfile">
-            <!-- <div class="form-group clearfix">
-                <label class="label">Email</label>
-                <textarea class="form-control" placeholder="Type the email here" id="email_text" name="text" required="required"></textarea>
-            </div> -->
             <input class="btn btn-primary mt-3" type="submit" value="Extractive summary">
+
+        </form>
+
+        <form class="p-3 text-center" action='/summarize', method="post" enctype="multipart/form-data">
+            <!-- <input class="form-control" type="file" name="textfile"> -->
+
+            <textarea class="form-control" placeholder="Type the text here" id="text" name="text" required="required"></textarea>
+           
+            <input class="btn btn-primary mt-3" type="submit" value="Summarize">
 
         </form>
 
 
 
 
-        {% if input %}
-        <p class="text-center"> <b>Input text is:</b> {{ input }}</p>
-        {% endif %}
-
-        {% if prediction %}
-        <p class="text-center"> <b>Extractive summary is:</b> {{ prediction }}</p>
-        {% endif %}
+        
+        <div class="card" style="width:100%">
+            <div class="card-body" style="background-color:lightcyan;">
+                {% if input %}
+                <p class="card-text"> <b>Input text is:</b> {{ input }}</p>
+                {% endif %}
+            </div>
+            
+        </div>
+        <br>
+        <div class="card" style="width:100%">
+            <div class="card-body" style="background-color:lightcyan;">
+                {% if prediction %}
+                <p class="card-text"> <b>Extractive summary is:</b> {{ prediction }}</p>
+                {% endif %}
+            </div>
+            
+        </div>
+        
         
     </body>
 
